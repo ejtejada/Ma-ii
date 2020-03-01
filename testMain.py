@@ -41,5 +41,10 @@ for i, word  in enumerate(listWords):
 		randoDelay(); #Don't overwhelm NLTK's system
 		passedWord = synGen(word, listPOS[i]);
 		listWords[i] = passedWord;
+	#Root Verb Swap 
+	elif listPOS[i] == "VERB" and (listDEP[i] == "ROOT"):
+		randoDelay(); #Don't overwhelm NLTK's system
+		passedWord = synGen(word, listPOS[i]);
+		listWords[i] = passedWord; #FIXME Use Spacy to correct tenses
 print("==========AFTER===========\n")
-print(listWords);
+print(' '.join(listWords));

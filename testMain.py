@@ -4,6 +4,8 @@
 import spacy
 import random
 from synGen import synGen
+from nltk.tokenize import sent_tokenize
+
 nlp = spacy.load("en_core_web_sm");
 
 #Adds a random delay between actions within human response time
@@ -48,3 +50,7 @@ for i, word  in enumerate(listWords):
 		listWords[i] = passedWord; #FIXME Use Spacy to correct tenses
 print("==========AFTER===========\n")
 print(' '.join(listWords));
+
+sentences = sent_tokenize(listWords)
+print("------------------------")
+print(sentences)

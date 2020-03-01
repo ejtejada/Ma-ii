@@ -50,8 +50,8 @@ for i, word  in enumerate(listWords):
 		listWords[i] = passedWord; #FIXME Use Spacy to correct tenses
 print("==========AFTER===========\n")
 print(' '.join(listWords));
-
-doc = nlp(listWords)
+newText = str(' '.join(listWords))
+doc = nlp(newText)
 sentences = sent_tokenize(doc)
 print("------------------------")
 print(sentences)

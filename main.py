@@ -4,7 +4,7 @@
 import spacy 
 
 nlp = spacy.load("en_core_web_sm");
-with open("DIARY_500.txt","r") as myFile:
+with open("HUCKFIN_500.txt","r") as myFile:
 	data_text = myFile.read();
 	whole_text = ''.join(data_text);  #(DO NOT add extra whitespaces between all chars)
 	print(whole_text); 

@@ -1,18 +1,19 @@
 import nltk
+import random
 nltk.download('wordnet');
 #nltk.download('omw');
 
-searchWord = "liquid";
-searchType = "VERB"; 
+searchWord = "table";
+searchType = "NOUN"; 
 posNumber = "00";
 synonyms = []; #Desired set
 antonyms = [];
 #From NLTK documentation
 #_pos_numbers = {NOUN: 1, VERB: 2, ADJ: 3, ADV: 4, ADJ_SAT: 5}
 if searchType == "NOUN":
-	posNumber = "01";
+	posNumber = ".n.";
 elif searchType == "VERB":
-	posNumber = "02";
+	posNumber = ".v.";
 
 
 from nltk.corpus import wordnet
@@ -23,10 +24,13 @@ for syn in wordnet.synsets(searchWord):
 		if searchWord.lower() not in l.name().lower():
 			if posNumber in str(l):
 				synonyms.append(l.name());
+				#Sanity Check
+				#print(str(l))
 			#FIXME remove all words not of the same class as searchWord
-			#Sanity Check
-			print(str(l))
+			#print(str(l))
 		if l.antonyms():
 			antonyms.append(l.antonyms()[0].name());
-print(set(synonyms));
+#print(set(synonyms));
+chosenWord = str(random.sample(set(synonyms),1)[0]);
+print(chosenWord);
 #print(set(antonyms));

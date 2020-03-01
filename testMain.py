@@ -6,6 +6,7 @@ import random
 from synGen import synGen
 from nltk.tokenize import sent_tokenize, word_tokenize
 
+import paraphraser
 nlp = spacy.load("en_core_web_sm");
 
 #Adds a random delay between actions within human response time

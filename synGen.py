@@ -21,7 +21,7 @@ def synGen(searchWord, searchType):
 	from nltk.corpus import wordnet
 	for syn in wordnet.synsets(searchWord):
 		for l in syn.lemmas():
-			if searchWord.lower() not in l.name().lower():
+			if searchWord.lower() not in l.name().lower(): #Ignore synonyms that contain the search word
 				if posNumber in str(l):
 					synonyms.append(l.name());
 					#Sanity Check
@@ -31,6 +31,8 @@ def synGen(searchWord, searchType):
 			if l.antonyms():
 				antonyms.append(l.antonyms()[0].name());
 	#print(set(synonyms));
+	if len(synonyms) < 1:
+		return searchWord; #No synonyms found, return the orignal word quietly.
 	chosenWord = str(random.sample(set(synonyms),1)[0]);
 	return chosenWord;
 

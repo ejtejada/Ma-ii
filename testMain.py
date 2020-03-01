@@ -7,7 +7,7 @@ nlp = spacy.load("en_core_web_sm");
 with open("HUCKFIN_500.txt","r") as myFile:
 	data_text = myFile.read();
 	whole_text = ''.join(data_text);  #(DO NOT add extra whitespaces between all chars)
-	print(whole_text); 
+	#print(whole_text); 
 	myFile.close();
 doc = nlp(whole_text);
 
@@ -20,6 +20,6 @@ for token in doc:
 	listPOS.append(token.pos_);
 	listDEP.append(token.dep_);
 
-#print
+print(listWords[1]);
 #Add an rnged 1.5 to 3 second delay between EVERY call to synGen
 print(synGen("slipped", "VERB")); #Yay this works

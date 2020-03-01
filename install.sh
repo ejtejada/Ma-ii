@@ -10,3 +10,4 @@ cd; git clone https://github.com/vsuthichai/paraphraser.git;
 cd paraphraser; 
 sudo python3 setup.py install; 
 sudo pip3 install -U flask;
+sudo apt-get install python3-pyqt5;

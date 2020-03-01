@@ -1,6 +1,7 @@
 import nltk
 import random
 nltk.download('wordnet');
+nltk.download('punkt');
 #nltk.download('omw');
 #This function should print out one synonym for a searchWord pulled from NLTK. We must also pass the searchType, to only map verbs or nouns to synonyms of the same PoS.
 def synGen(searchWord, searchType):

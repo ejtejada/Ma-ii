@@ -51,6 +51,7 @@ for i, word  in enumerate(listWords):
 print("==========AFTER===========\n")
 print(' '.join(listWords));
 
-sentences = sent_tokenize(listWords)
+doc = nlp(listWords)
+sentences = sent_tokenize(doc)
 print("------------------------")
 print(sentences)

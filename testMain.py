@@ -4,7 +4,7 @@
 import spacy
 import random
 from synGen import synGen
-from nltk.tokenize import sent_tokenize
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 nlp = spacy.load("en_core_web_sm");
 
@@ -26,14 +26,14 @@ doc = nlp(whole_text);
 
 listWords = []; #Stores words to be tokenized
 listPOS = []; #Stores the corresponding type of word, say noun, pronoun, verb, etc.
-listDEP = []; #Stores synatical type, like AUX or nsubj (Noun Subject), or 
+listDEP = []; #Stores synatical type, like AUX or nsubj (Noun Subject), or pobj (Prepositional Object) 
 for token in doc:
 	#print(token.text, token.pos_, token.dep_);
 	listWords.append(token.text);
 	listPOS.append(token.pos_);
 	listDEP.append(token.dep_);
-print("==========BEFORE===========\n")
-print(listWords);
+#print("==========BEFORE===========\n")
+#print(listWords);
 #Add an rnged 1.5 to 3 second delay between EVERY call to synGen
 #print(synGen("slipped", "VERB")); #Yay this works
 
@@ -50,8 +50,8 @@ for i, word  in enumerate(listWords):
 		listWords[i] = passedWord; #FIXME Use Spacy to correct tenses
 print("==========AFTER===========\n")
 print(' '.join(listWords));
-newText = str(' '.join(listWords))
-doc = nlp(newText)
-sentences = sent_tokenize(doc)
+newText = str(' '.join(listWords)) #FIXME Can or should we fix spaces before punctuation here?
+
+sentences = sent_tokenize(newText)
 print("------------------------")
 print(sentences)

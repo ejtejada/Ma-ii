@@ -8,8 +8,8 @@ nlp = spacy.load("en_core_web_sm");
 
 #Adds a random delay between actions within human response time
 def randoDelay():
-	low = 0.5;
-	high = 1.0;
+	low = 0.15;
+	high = 0.5;
 	x = random.uniform(low, high);
 	from time import sleep;
 	sleep(x);

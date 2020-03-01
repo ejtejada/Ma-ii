@@ -1,9 +1,15 @@
-from flask import Flask
+from flask import Flask, flash, redirect, render_template, request, session, abort
+
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "Hello World"
+def index():
+    return "Flask App!"
 
-if __name__=="__main__":
-    app.run()
+@app.route("/hello/<string:name>/")
+def hello(name):
+    return render_template(
+    'test.html',name=name)</string:name>
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
